@@ -1,7 +1,7 @@
 /* global module:false */
 module.exports = function(grunt) {
 	var port = grunt.option('port') || 8000;
-	var root = grunt.option('root') || '.';
+	var root = grunt.option('root') || [ '.', './slides' ];
 
 	if (!Array.isArray(root)) root = [root];
 

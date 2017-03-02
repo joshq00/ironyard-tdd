@@ -7,7 +7,7 @@
 		<title>reveal.js</title>
 
 		<link rel="stylesheet" href="css/reveal.css">
-		<link rel="stylesheet" href="css/theme/black.css">
+		<link rel="stylesheet" href="css/theme/blood.css">
 
 		<!-- Theme used for syntax highlighting of code -->
 		<link rel="stylesheet" href="lib/css/zenburn.css">
@@ -24,14 +24,25 @@
 	<body>
 		<div class="reveal">
 			<div class="slides">
-				<section>Slide 1</section>
-				<section>Slide 2</section>
+				<section data-separator="^\n{3,}" data-separator-vertical="^\n{2}"
+					data-markdown="slides/001-intro.md"></section>
+				<section data-separator="^\n{3,}" data-separator-vertical="^\n{2}"
+					data-markdown="slides/perception.md"></section>
+				<section data-separator="^\n{3,}" data-separator-vertical="^\n{2}"
+					data-markdown="slides/motivations.md"></section>
+				<section data-separator="^\n{3,}" data-separator-vertical="^\n{2}"
+					data-markdown="slides/confidence-example.md"></section>
+				<section data-separator="^\n{3,}" data-separator-vertical="^\n{2}"
+					data-markdown="slides/good-tests.md"></section>
+				<section data-separator="^\n{3,}" data-separator-vertical="^\n{2}"
+					data-markdown="slides/tdd.md"></section>
+				<section data-separator="^\n{3,}" data-separator-vertical="^\n{2}"
+					data-markdown="slides/_TODO.md"></section>
 			</div>
 		</div>
 
 		<script src="lib/js/head.min.js"></script>
 		<script src="js/reveal.js"></script>
-
 		<script>
 			// More info https://github.com/hakimel/reveal.js#configuration
 			Reveal.initialize({
@@ -45,6 +56,12 @@
 					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
 				]
 			});
+		</script>
+		<script>
+		Reveal.addEventListener( 'ready', function( event ) {
+			Array.from( document.querySelectorAll( 'video.speed-4x' ) )
+				.forEach( vid => vid.playbackRate = 4 )
+		} )
 		</script>
 	</body>
 </html>
