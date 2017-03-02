@@ -1,101 +1,86 @@
+
 ### TDD
 
 
-##### Exercise
-
-Is this working properly?
-```js
-it( 'calculates the correct value', () => {
-    expect( getValue( 4 ) ).to.eq( 5 )
-    expect( getValue( 8 ) ).to.eq( 13 )
-    expect( getValue( 13 ) ).to.eq( 377 )
-} )
-```
-<small>
-<code><span style="color: green">✓</span> calculates the correct value (1ms)</code>
-</small>
-
+#### Describe _what_ we're building
+<!-- .element: class="fragment"
+-->Not how
 note:
-- The tests pass
-- I know that
-  - given 4, it should return 5,
-  - 8 -> 13
-  - 13 -> 377
+- in TDD, we describe the functionality
+- this adds context for future devs
 
 
-<span style="font-size: 5em">¯\\\_(ツ)_/¯</span>
+#### <span style="color: red">Red</span>
+#### <span class="fragment" style="color: green">Green</span>
+#### <span class="fragment">Refactor</span>
+
+
+#### Not really an approach to testing
 note:
-- But I have no idea if it's working properly
+- it's a development process
+- like we don't wash our hands to have washed hands
+  - we wash them to avoid illness and disease
+  - do it for the benefits
 
 
-<span style="color: red; font-size: 2em">!!!!!!!!!</span>
-
-> Users are complaining their browsers
-> freeze on our site
-
-<span style="color: red; font-size: 2em">!!!!!!!!!</span>
-
-
-###### After some investigation:
-- Source:  
-  `sequence.js:getValue`
-
-- Steps to reproduce:  
-  Use `-1` as an input  
-
-_Note_:_ we think it's happening for all negatives_
+We don't test to see  
+if our _code_ works as expected
 note:
-- what a coincidence - we were just looking at that
-
-
-We need to add a test...
-<pre><code data-trim data-noescape class="javascript">
-it( 'calculates the correct value', () => {
-    expect( getValue( -1 ) ).to.eq( <span class="fragment">'...ummm?' )</span>
-    expect( getValue( 4 ) ).to.eq( 5 )
-    expect( getValue( 8 ) ).to.eq( 13 )
-    expect( getValue( 13 ) ).to.eq( 377 )
-} )</code></pre>
-
-note:
-- I guess we can look at the code...
-
-
-The code:
-```js
-function getValue ( num ) {
-  var a = 1, b = 0, temp;
-
-  while ( num != 0 ){
-    temp = a;
-    a = a + b;
-    b = temp;
-    num--;
-  }
-
-  return b;
-}
-```
-
-
-#### Describe what we're building
-
-
-How about this?
-```js
-it( 'gives the Nth value in the fibonacci sequence', () => {
-    expect( getValue( 4 ) ).to.eq( 5 )
-    expect( getValue( 8 ) ).to.eq( 13 )
-    expect( getValue( 13 ) ).to.eq( 377 )
-} )
-```
-<small>
-<code><span style="color: green">✓</span> gives the Nth value in the fibonacci sequence</code>
-</small>
-
-
-We don't test to see if our _code_ works
-note:
+- most tests written this way
+- we don't get paid for code
+  - we get paid for functionality
 - test to see if APP works
 - if our _code_ does what the app needs it to,
   then it also works
+
+
+#### Refactoring
+note:
+- TDD is very much about refactoring
+- Knowing getValue is `fib`, we can safely refactor
+  - couldn't by just knowing "it gives correct value"
+
+
+#### Verifiable code
+note:
+- Our tests show how to interact with the code
+
+
+#### Tight cycles between test and code
+<!-- .element: class="fragment"
+-->Failing tests are a good thing
+note:
+- seconds to minutes
+
+- failing tests let you know
+  something isn't working
+- broke something?
+  - something you did in the last few moments
+
+
+#### Good design
+note:
+- think about how to interact with the API up front
+- because test is written first, it's very testable
+
+
+#### Do less
+note:
+- We build too much 'cause we think we'll need it
+- We waste time even thinking about the edge cases
+- Solving a problem, not every problem
+
+
+#### Short feedback loop
+note:
+- just like agile
+- find out what to do next ASAP
+
+
+#### Moving target
+note:
+- development is fast-paced
+- if you plan to write tests later, you won't
+  - something else always comes up
+- testing first == no debt
+
