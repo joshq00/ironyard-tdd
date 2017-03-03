@@ -13,6 +13,10 @@ note:
 #### <span style="color: red">Red</span>
 #### <span class="fragment" style="color: green">Green</span>
 #### <span class="fragment">Refactor</span>
+note:
+- Write a failing test
+- Make the test pass
+- Refactor code and tests
 
 
 #### Not really an approach to testing

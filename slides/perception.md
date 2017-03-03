@@ -1,4 +1,7 @@
 ## Perception
+note:
+- People not using TDD often have negative view on it
+- I did -- "don't see the benefit"
 
 
 ### What have you heard?
